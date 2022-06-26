@@ -58,8 +58,10 @@ public class ProfessorDao implements IObjDao<Professor>{
     public List<Professor> lista() {
         List<Professor> professores = new ArrayList<Professor>();
         StringBuffer buffer = new StringBuffer();
-        buffer.append("SELECT *");
-        buffer.append("FROM professor ");
+        buffer.append("SELECT prof.id_prof, prof.nome_prof, prof.email_prof, prof.contato_prof, prof.id_mat,");
+        buffer.append("mat.nome_mat, mat.horas_mat, mat.descricao_mat ");
+        buffer.append("FROM professor prof, materia mat ");
+        buffer.append("WHERE prof.id_mat = mat.id_mat");
         EntityManager entityManager = sf.createEntityManager();
         Query query = entityManager.createNativeQuery(buffer.toString());
         List<Object[]> lista = query.getResultList();

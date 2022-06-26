@@ -11,20 +11,18 @@ import java.util.List;
 
 public class main {
     public static void main(String[] args) {
-        Professor prof1 = new Professor();
-        prof1.setId(1);
-        prof1.setNome("Sarah");
-        prof1.setContato("999230430");
-        prof1.setEmail("teste@gmail.com");
-
-        Materia mat = new Materia();
-        mat.setId(1);
-
-        prof1.setMateria(mat);
-
-        SessionFactory sf = HibernateUtil.getSessionFactory();
-        ProfessorDao conn = new ProfessorDao(sf);
-        conn.insere(prof1);
-        //conn.remove(prof1);
+        Materia mat1 = new Materia();
+      mat1.setId(1);
+      mat1.setNome("Matematica");
+      mat1.setHoras(10);
+      mat1.setDescricao("Teste1");
+      Materia mat2 = new Materia();
+      mat2.setId(2);
+      mat2.setNome("Matematica");
+      mat2.setHoras(10);
+      mat2.setDescricao("Teste1");
+      SessionFactory sf = HibernateUtil.getSessionFactory();
+      MateriaDao conn = new MateriaDao(sf);
+        conn.insere(mat1);
     }
 }
